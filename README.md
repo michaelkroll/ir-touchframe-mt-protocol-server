@@ -8,6 +8,7 @@ which is accessible through /dev/input/event<x>.
 
 You can test the events using the command line tool evtest:
 
+```
 mkroll@raspi:~ $ evtest
 No device specified, trying to scan all of /dev/input/event*
 Not running as root, no devices may be available.
@@ -18,9 +19,10 @@ Available devices:
 /dev/input/event7:	Touch p403 Touch Device,32-40P Keyboard
 ...
 Select the device event number [0-11]:
+```
 
 In my case I connected to /dev/input/event5 and get mt event logged similar to the following snippet:
-
+```
 Event: time 1710752263.473052, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value 61
 Event: time 1710752263.473052, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 26118
 Event: time 1710752263.473052, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 25389
@@ -68,8 +70,8 @@ Event: time 1710752263.683021, -------------- SYN_REPORT ------------
 Event: time 1710752263.698021, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value -1
 Event: time 1710752263.698021, type 1 (EV_KEY), code 330 (BTN_TOUCH), value 0
 Event: time 1710752263.698021, -------------- SYN_REPORT ------------
-
+```
 The MultiTouchServer implementation reads those events and provides them as JSON object to the connected WebSocket clients:
-
+```
 {"sec":1710751527,"usec":916474,"type":3,"value":850,"code":48}
-
+```
