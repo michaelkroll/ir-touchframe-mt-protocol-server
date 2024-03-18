@@ -1,10 +1,15 @@
 # MultiTouchServer
 
-This simple WebServerSocket implememtation serves Multitouch events emitted by an IR Touch Frame, which is connected to a Raspberry Pi or Linux Computer, to a Browser app or any other client connected to it.
+This simple WebServerSocket implememtation serves Multitouch events emitted by an IR Touch Frame. For this code do run the IR Frame must be connected to a Raspberry Pi or Linux Computer.
+The client can be e.g. implemented in a Browser app. 
+
 Im using the implementation with a Greentouch (TF Series) 32 Inch InfraRed Touch Frame: https://www.greentouch.com.cn/?list_22/302.html
 
-When connected to a Raspberry Pi through USB, the Frame emits toch events described in the Linux Kernel Multi Touch (MT) protocol: https://www.kernel.org/doc/html/v5.0/input/multi-touch-protocol.html
-which is accessible through /dev/input/event<x>.
+When connected to a Raspberry Pi through USB, the Frame emits touch events described in the Linux Kernel Multi Touch (MT) protocol: https://www.kernel.org/doc/html/v5.0/input/multi-touch-protocol.html
+which is accessible through 
+```
+/dev/input/event<x>.
+```
 
 You can test the events using the command line tool evtest:
 
